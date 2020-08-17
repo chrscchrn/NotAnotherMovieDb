@@ -9,7 +9,8 @@ As an indecisive movie lover, I want to not spend the length of a movie choosing
 The motivation for development is we consistently spend the average length of a movie picking which movie to watch.
 
 WIREFRAME:
-[Click Here](movie_wireframe.png)
+Desktop: [Click Here](movie_wireframe.png)
+Mobile: Wheel will be under search criteria element
 
 INCLUDED APIs:
 - Utelly
@@ -18,10 +19,10 @@ INCLUDED APIs:
 TASK BREAKDOWN:
 
     Front End:
-    - HTML
-    - CSS
-    - JS DOM manipulation
-
+    - HTML(Chris)
+    - CSS(Chris)
+    - JS DOM manipulation (Nolan)
+    - JS wheel animation
     Back End:
-    - Utelly API
-    - (Genre Db) API
+    - Utelly API (Calum)
+    - (Genre Db) API (Calum)
