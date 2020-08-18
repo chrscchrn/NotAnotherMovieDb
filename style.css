@@ -20,7 +20,7 @@ body {
     grid-template-areas:
     ". header header ."
     ". intro image ."
-    ". form form ."
+    ". form wheel ."
     "footer footer footer footer";
 }
 
@@ -50,8 +50,22 @@ body {
     z-index: 1;
 }
 
+.inherit {
+    background: inherit;
+}
+
+.wheel {
+    background: darkblue;
+    grid-area: wheel;
+}
+
 .z {
     z-index: 1;
+    color: white;
+}
+
+#genreDropDown {
+    color: white;
 }
 
 footer {
