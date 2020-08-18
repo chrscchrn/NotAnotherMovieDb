@@ -13,57 +13,78 @@
         Not Another Movie Database!
     </h1>
     <p class="intro">
-        An app that lets the user select a series of filters to randomly select a suggested movie on whatever streaming services they may have. 
+        The API that lets you select a series of filters to randomly generate a movie based on streaming services you use. 
     </p>
     <div class="image">
         use the same responsive background image stuff here... also pick nice pic
     </div>
 
-    <section class="form" id="filter">
+    <section class="form z" id="filter">
         <div>
             <div>
                 <h3 class="subTitle">
                     Filter Search
                 </h3>
+                <h6>
+                    Select the genre from the dropdown list. Pick any streaming service you may use.
+                </h6>
 
-                <div class="input-field col s12">
-                    <select>
-                      <option value="" disabled selected>Choose your option</option>
-                      <option value="1">Option 1</option>
-                      <option value="2">Option 2</option>
-                      <option value="3">Option 3</option>
+                <div class="input-field">
+                    <select id="genreDropDown">
+                        <option value="" disabled selected>Choose Genre</option>
                     </select>
-                    <label>Materialize Select</label>
+                    <label>Genre</label>
                 </div>
 
-                <form id="filters">
-                    <button id="#netflixIcon">
+                <section id="filters" class="z">
+                    <button id="#netflixIcon" class="inherit">
                         <img src="netflix.ico" alt="Click for Netflix" width="150" height="150">
                     </button>
-                    <button id="#huluIcon">
-                        <img src="hulu.ico" alt="Click for Netflix" width="150" height="150">
+                    <button id="#huluIcon" class="inherit">
+                        <img src="hulu.png" alt="Click for Netflix" width="200" height="150">
                     </button>
-                    <button id="#primeIcon">
+                    <button id="#primeIcon" class="inherit">
                         <img src="amazon.png" alt="Click for Netflix" width="150" height="150">
                     </button>
-                    <button id="#disneyIcon">
+                    <button id="#disneyIcon" class="inherit">
                         <img src="Disney.svg" alt="Click for Netflix" width="150" height="150">
                     </button>
-                </form>
+                </section>
                 <div class="row">
-                    <div class="input-field col s6">
-                      <input placeholder="Year" id="year1" type="text" class="validate">
+                    <div class="input-field col s6 z">
+                      <input placeholder="Year" id="year1" type="text" class="validate z">
                       <label for="year1">Enter desired year</label>
                     </div>
-                    <div class="input-field col s6">
-                      <input placeholder="Year" id="last_name" type="text" class="validate">
+                    <div class="input-field col s6 z">
+                      <input placeholder="Year" id="last_name" type="text" class="validate z">
                       <label for="year2">Enter second year for a range, leave blank if else.</label>
                     </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                      <input placeholder="Actor" id="year1" type="text" class="validate z">
+                      <label for="year1">Enter to Include Actor</label>
+                    </div>
+                    <div class="input-field col s6">
+                      <input placeholder="Actor" id="last_name" type="text" class="validate z">
+                      <label for="year2">Enter to Exclude Actor</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                      <input placeholder="Director" id="year1" type="text" class="validate z">
+                      <label for="year1">Enter to Include Director</label>
+                    </div>
+                    <button class="searchBtn inherit" id="submit" width="150" height="150">
+                        <label>Find my Movie</label>
+                    </button>
                 </div>
             </div>
         </div>
     </section>
-
+    <div class="wheel conatiner">
+        insert dope wheel here
+    </div>
     <footer>
         <div class="footer-content">
             <p>yeah yeah yeah<p>
