@@ -2,11 +2,11 @@ $(document).ready(function () {
 
     const genres = [
         {"Genre": "Action", "ID": "28"},
+        {"Genre": "Crime", "ID": "80"},
+        {"Genre": "Documentary", "ID": "99"},
         {"Genre": "Adventure", "ID": "12"},
         {"Genre": "Animation", "ID": "16"},
         {"Genre": "Comedy", "ID": "35"},
-        {"Genre": "Crime", "ID": "80"},
-        {"Genre": "Documentary", "ID": "99"},
         {"Genre": "Drama", "ID": "18"},
         {"Genre": "Family", "ID": "10751"},
         {"Genre": "Fantasy", "ID": "14"},
@@ -31,6 +31,13 @@ $(document).ready(function () {
     }
 
     $('select').formSelect();
+
+    let genreID;
+    $("#submit").on("click", function(event){
+        event.preventDefault();
+        genreID= $("#genreDropdown").val();
+        console.log(genreID);
+    })
 
     var APIKey = "5a3f3373b8ebcad2db18450af15ec4fd";
 
