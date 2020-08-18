@@ -27,16 +27,14 @@ $(document).ready(function () {
         newGenre.text(genres[i].Genre);
         newGenre.data("number", genres[i].ID);
         newGenre.val(genres[i].ID);
-        $("#genreDropdown").append(newGenre);
+        $("#genreDropDown").append(newGenre);
     }
-<<<<<<< HEAD
 
     $('select').formSelect();
 
-    let genreID;
     $("#submit").on("click", function(event){
         event.preventDefault();
-        genreID= $("#genreDropdown").val();
+        genreID= $("#genreDropDown").val();
         console.log(genreID);
     })
 
@@ -54,22 +52,3 @@ $(document).ready(function () {
 
         });
 })
-=======
-    
-    $('.dropdown-trigger').dropdown();
-var APIKey = "5a3f3373b8ebcad2db18450af15ec4fd";
-
-var queryURL = "https://api.themoviedb.org/3/discover/movie?api_key=5a3f3373b8ebcad2db18450af15ec4fd&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_date.gte=1990-01-01&primary_release_date.lte=1999-12-31&vote_average.gte=6&with_genres=28"
-$.ajax({
-url: queryURL,
-method: "GET"
-})
-.then(function(response) {
-    
-    console.log(queryURL);
-    console.log(response);
-
-});
-})
-
->>>>>>> d117a8ccac6faab3062924b4b67c6e562b79233f
