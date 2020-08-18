@@ -27,12 +27,11 @@ $(document).ready(function () {
         newGenre.text(genres[i].Genre);
         newGenre.data("number", genres[i].ID);
         newGenre.val(genres[i].ID);
-        $("#genreDropdown").append(newGenre);
+        $("#genreDropDown").append(newGenre);
     }
 
     $('select').formSelect();
 
-    let genreID;
     $("#submit").on("click", function(event){
         event.preventDefault();
         genreID= $("#genreDropDown").val();
