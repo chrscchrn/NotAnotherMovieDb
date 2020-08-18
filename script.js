@@ -1,16 +1,36 @@
 $(document).ready(function () {
-    $('select').formSelect();
 
-    const genres = ["Action", "Adventure", "Animation", "Comedy", "Crime", "Documentary", "Drama", "Family", "Fantasy", "History", "Horror", "Music", "Mystery", "Romance", "Science Fiction", "TV Movie", "Thriller", "War", "Western"];
-    const genreID = ["28", "12", "16", "35", "80", "99", "18", "10751", "14", "36", "27", "10402", "9648", "10749", "878", "10770", "53", "10752", "37"];
+    const genres = [
+        {"Genre": "Action", "ID": "28"},
+        {"Genre": "Adventure", "ID": "12"},
+        {"Genre": "Animation", "ID": "16"},
+        {"Genre": "Comedy", "ID": "35"},
+        {"Genre": "Crime", "ID": "80"},
+        {"Genre": "Documentary", "ID": "99"},
+        {"Genre": "Drama", "ID": "18"},
+        {"Genre": "Family", "ID": "10751"},
+        {"Genre": "Fantasy", "ID": "14"},
+        {"Genre": "History", "ID": "36"},
+        {"Genre": "Horror", "ID": "27"},
+        {"Genre": "Music", "ID": "10402"},
+        {"Genre": "Mystery", "ID": "9648"},
+        {"Genre": "Romance", "ID": "10749"},
+        {"Genre": "Science Fiction", "ID": "878"},
+        {"Genre": "TV Movie", "ID": "10770"},
+        {"Genre": "Thriller", "ID": "53"},
+        {"Genre": "War", "ID": "10752"},
+        {"Genre": "Western", "ID": "37"}
+    ]
 
     for (let i = 0; i < genres.length; i++) {
         newGenre = $("<option>");
-        newGenre.text(genres[i]);
-        newGenre.data("number", genreID[i]);
-        console.log(newGenre);
+        newGenre.text(genres[i].Genre);
+        newGenre.data("number", genres[i].ID);
+        newGenre.val(genres[i].ID);
         $("#genreDropdown").append(newGenre);
     }
+
+    $('select').formSelect();
 
     var APIKey = "5a3f3373b8ebcad2db18450af15ec4fd";
 
