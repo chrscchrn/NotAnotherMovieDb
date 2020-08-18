@@ -1,0 +1,65 @@
+html, body, div, form, fieldset, legend, label { margin: 0; padding: 0;  }
+table { border-collapse: collapse; border-spacing: 0; }
+th, td { text-align: left; vertical-align: top; }
+h1, h2, h3, h4, h5, h6, th, td, caption { font-weight:normal; }
+img { border: 0; }
+
+html {
+    font-size: 16px;
+    line-height: 1.5;
+    background: rgb(15, 15, 16);
+    color: white;
+    font-family: "Helvetica", "Avenir Next", Avenir, "Helvetica Neue";
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr 6fr 4fr 1fr;
+    grid-template-rows: 1fr 1fr auto;
+    grid-template-areas:
+    ". header header ."
+    ". intro image ."
+    ". form form ."
+    "footer footer footer footer";
+}
+
+.title {
+    grid-area: header;
+    font-size: 6.5rem;
+    font-weight: 700;
+    line-height: 0.8;
+    text-decoration: none;
+}
+
+.intro {
+    grid-area: intro;
+    align-self: end;
+    font-size: 3rem;
+    line-height: 1.4;
+}
+
+.image {
+    grid-area: image;
+    background-color: darkgrey;
+}
+
+.form {
+    grid-area: form;
+    /* background: inherit; */
+    z-index: 1;
+}
+
+.z {
+    z-index: 1;
+}
+
+footer {
+    grid-area: footer;
+    
+    display: grid;
+    grid-template-columns: 1fr 5fr 5fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+    ". p p ."
+}
