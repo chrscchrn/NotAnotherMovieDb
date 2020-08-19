@@ -21,7 +21,6 @@ $(document).ready(function () {
         { "Genre": "War", "ID": "10752" },
         { "Genre": "Western", "ID": "37" }
     ]
-    let startYear, endYear, includeActor, excludeActor, director;
 
     for (let i = 0; i < genres.length; i++) {
         newGenre = $("<option>");
@@ -34,6 +33,7 @@ $(document).ready(function () {
 
     $('select').formSelect();
 
+    let startYear, endYear, includeActor, excludeActor, director;
     $("#submit").on("click", function (event) {
         event.preventDefault();
         genreID = $("#genreDropDown").val();
@@ -41,10 +41,10 @@ $(document).ready(function () {
         startYear = $("#year1").val().trim();
         endYear = $("#year2").val().trim();
         console.log(startYear, endYear);
-        includeActor = $("#includeActor").val().trim();
-        excludeActor = $("#excludeActor").val().trim();
+        includeActor = $("#includeActor").val().toLowerCase().trim();
+        excludeActor = $("#excludeActor").val().toLowerCase().trim();
         console.log(includeActor, excludeActor);
-        director = $("#includeDirector").val().trim();
+        director = $("#includeDirector").val().toLowerCase().trim();
         console.log(director);
         var IDqueryURL="https://api.themoviedb.org/3/search/person?api_key="+APIKey+"&language=en-US&page=1&include_adult=false&query="+includeActor;
         
@@ -84,8 +84,35 @@ $(document).ready(function () {
             var movietitle=$("<h4>");
             movietitle.text(response.results[resInd].title+"("+response.results[resInd].release_date.substring(0,4)+")");
             $("#titlecard").append(movietitle);
+
+            // //movie poster generator
+            // //generate image
+            // //add class 
+            // //add src
+            // //repeat until done
+            // var myIndex = 0;
+            // slideshow();
+
+            // function slideshow() {
+            //     var i;
+            //     var x = $(".movieCovers");
+            //     for (i = 0; i < x.length; i++) {
+            //         x[i].style.display = "none";  
+            //     }
+            //     myIndex++;
+            //     if (myIndex > x.length) {myIndex = 1}    
+            //     x[myIndex-1].style.display = "block";  
+            //     setTimeout(slideshow, 150); // Change image every .15 seconds returns the id of the global var timeout
+            // }
+            // //button highlighter
+            //     //if statements for each
+            // $('#netflixIcon').css('background-color', '#ff8c00');
+            // $('#huluIcon').css('background-color', '#ff8c00');
+            // $('#primeIcon').css('background-color', '#ff8c00');
+            // $('#disneyIcon').css('background-color', '#ff8c00');
         });
         }
 
+   
 })
 
