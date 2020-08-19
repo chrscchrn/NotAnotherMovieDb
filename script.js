@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    
+   
 
     const genres = [
         {"Genre": "Action", "ID": "28"},
@@ -37,8 +39,7 @@ $(document).ready(function () {
         event.preventDefault();
         genreID= $("#genreDropDown").val();
         console.log(genreID);
-       
-
+        
         
     })
     
@@ -53,7 +54,32 @@ $(document).ready(function () {
 
             console.log(queryURL);
             console.log(response);
+            //movie poster generator
+            //generate image
+            //add class 
+            //add src
+            //repeat until done
+            var myIndex = 0;
+            slideshow();
 
+            function slideshow() {
+                var i;
+                var x = $(".movieCovers");
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";  
+                }
+                myIndex++;
+                if (myIndex > x.length) {myIndex = 1}    
+                x[myIndex-1].style.display = "block";  
+                setTimeout(slideshow, 150); // Change image every .15 seconds returns the id of the global var timeout
+            }
+            //button highlighter
+                //if statements for each
+            $('#netflixIcon').css('background-color', '#ff8c00');
+            $('#huluIcon').css('background-color', '#ff8c00');
+            $('#primeIcon').css('background-color', '#ff8c00');
+            $('#disneyIcon').css('background-color', '#ff8c00');
+            
         });
 })
 
