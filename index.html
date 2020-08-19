@@ -15,12 +15,7 @@
         Not Another Movie Database!
     </h1>
     <p class="intro">
-<<<<<<< HEAD
         The API that lets you select a series of filters to randomly generate a movie based on streaming services you use. 
-=======
-        The API that lets you select a series of filters to randomly generate a movie based on streaming services you
-        use.
->>>>>>> b80a9a9d251a45957ebb4ab4fc24389e4c53ed95
     </p>
     <div class="image">
         use the same responsive background image stuff here... also pick nice pic
@@ -36,14 +31,13 @@
                     Select the genre from the dropdown list. Pick any streaming service you may use.
                 </h6>
 
-                <div class="input-field">
+                <div class="input-field ">
                     <select id="genreDropDown">
-                        <option value="" disabled selected>Choose Genre</option>
+                        <option disabled selected>Choose Genre</option>
                     </select>
-                    <label>Genre</label>
                 </div>
 
-                <section id="filters" class="z">
+                <section id="filters " class="z">
                     <button id="#netflixIcon" class="inherit">
                         <img src="netflix.ico" alt="Click for Netflix" width="150" height="150">
                     </button>
@@ -63,44 +57,37 @@
                         <label for="year1">Enter desired year</label>
                     </div>
                     <div class="input-field col s6 z">
-<<<<<<< HEAD
-                      <input placeholder="Year" id="last_name" type="text" class="validate z">
-                      <label for="year2">Enter second year for a range, leave blank if else.</label>
-=======
-                        <input placeholder="Year" id="last_name" type="text" class="validate z">
-                        <label for="year2">Enter second year for a range, leave blank if else.</label>
->>>>>>> b80a9a9d251a45957ebb4ab4fc24389e4c53ed95
+                      <input placeholder="Year" id="yea2" type="text" class="validate z">
+                      <label for="year2">Enter second year for range.</label>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s6">
-                        <input placeholder="Actor" id="year1" type="text" class="validate z">
+                    <div class="input-field col s6 z">
+                        <input placeholder="Actor" id="includeActor" type="text" class="validate z">
                         <label for="year1">Enter to Include Actor</label>
                     </div>
-                    <div class="input-field col s6">
-                        <input placeholder="Actor" id="last_name" type="text" class="validate z">
+                    <div class="input-field col s6 z">
+                        <input placeholder="Actor" id="excludeActor" type="text" class="validate z">
                         <label for="year2">Enter to Exclude Actor</label>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s6">
-                        <input placeholder="Director" id="year1" type="text" class="validate z">
+                    <div class="input-field col s6 z">
+                        <input placeholder="Director" id="includeDirector" type="text" class="validate z">
                         <label for="year1">Enter to Include Director</label>
                     </div>
-                    <button class="searchBtn inherit" id="submit" width="150" height="150">
+                    <button class="searchBtn inherit z" id="submit" width="150" height="150">
                         <label>Find my Movie</label>
                     </button>
                 </div>
             </div>
         </div>
     </section>
-    <div class="wheel conatiner">
-        insert dope wheel here
-    </div>
+    <cavnas id="canvas" height="inherit" width="inherit"></cavnas>
     <footer>
         <div class="footer-content">
             <p>yeah yeah yeah
-            <p>
+                <img src="netflix.png" height="1" width="1">
         </div>
     </footer>
 
