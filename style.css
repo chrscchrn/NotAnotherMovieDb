@@ -15,12 +15,12 @@ html {
 
 body {
     display: grid;
-    grid-template-columns: 1fr 6fr 4fr 1fr;
+    grid-template-columns: 1fr 6fr 3fr 2fr;
     grid-template-rows: 1fr 1fr auto;
     grid-template-areas:
     ". header header ."
-    ". intro image ."
-    ". form wheel ."
+    ". intro icons ."
+    ". form poster ."
     "footer footer footer footer";
 }
 
@@ -48,9 +48,9 @@ footer {
     line-height: 1.4;
 }
 
-.image {
-    grid-area: image;
-    background-color: darkgrey;
+.icons {
+    grid-area: icons;
+    /* background-color: darkgrey; */
 }
 
 .form {
@@ -68,13 +68,17 @@ footer {
     grid-area: wheel;
 } */
 
-#canvas {
-    background: white;
+#moviePosterDiv {
+    background: inherit;
     border: solid 2px blue;  
+<<<<<<< HEAD
     grid-area: wheel;
     z-index: 5;
     bottom: 0;
     right: 0;
+=======
+    grid-area: poster;
+>>>>>>> 63800372e1f2823e2f20fa2ae7c98bf80231c76d
 }
 
 .z {

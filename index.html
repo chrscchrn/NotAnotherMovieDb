@@ -15,12 +15,24 @@
         Not Another Movie Database!
     </h1>
     <p class="intro">
-        The API that lets you select a series of filters to randomly generate a movie based on streaming services you
-        use.
+        The API that lets you select a series of filters to randomly generate a movie along with the streaming services its on. 
     </p>
-    <div class="image">
-        use the same responsive background image stuff here... also pick nice pic
-    </div>
+    
+    <section class="z icons">
+        <button id="netflixIcon" class="inherit">
+            <img src="netflix.ico" alt="Click for Netflix" width="150" height="150">
+        </button>
+        <button id="huluIcon" class="inherit">
+            <img src="hulu.png" alt="Click for Netflix" width="150" height="150">
+        </button>
+        <button id="primeIcon" class="inherit">
+            <img src="amazon.png" alt="Click for Netflix" width="150" height="150">
+        </button>
+        <button id="disneyIcon" class="inherit">
+            <img src="Disney.svg" alt="Click for Netflix" width="150" height="150">
+        </button>
+    </section>
+   
 
     <section class="form z" id="filter">
         <div>
@@ -29,7 +41,7 @@
                     Filter Search
                 </h3>
                 <h6>
-                    Select the genre from the dropdown list. Pick any streaming service you may use.
+                    Select the genre from the dropdown list.
                 </h6>
 
                 <div class="input-field ">
@@ -38,20 +50,6 @@
                     </select>
                 </div>
 
-                <section id="filters " class="z">
-                    <button id="#netflixIcon" class="inherit">
-                        <img src="netflix.ico" alt="Click for Netflix" width="150" height="150">
-                    </button>
-                    <button id="#huluIcon" class="inherit">
-                        <img src="hulu.png" alt="Click for Netflix" width="200" height="150">
-                    </button>
-                    <button id="#primeIcon" class="inherit">
-                        <img src="amazon.png" alt="Click for Netflix" width="150" height="150">
-                    </button>
-                    <button id="#disneyIcon" class="inherit">
-                        <img src="Disney.svg" alt="Click for Netflix" width="150" height="150">
-                    </button>
-                </section>
                 <div class="row">
                     <div class="input-field col s6 z">
                         <input placeholder="Year" id="year1" type="text" class="validate z">
@@ -80,15 +78,17 @@
                     <button class="searchBtn inherit z" id="submit" width="150" height="150">
                         <label>Find my Movie</label>
                     </button>
+                    <p>Only genre is required</p>
                 </div>
             </div>
         </div>
     </section>
-    <cavnas id="canvas" height="inherit" width="inherit"></cavnas>
+    <!-- <cavnas id="canvas" height="inherit" width="inherit"></cavnas> -->
+    <div id="moviePosterDiv"></div>
     <footer>
         <div class="footer-content">
             <p>yeah yeah yeah
-                <img src="netflix.png" height="1" width="1">
+                <img src="netflix.png" height="5" width="5">
         </div>
     </footer>
 
