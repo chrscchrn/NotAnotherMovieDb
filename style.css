@@ -71,14 +71,7 @@ footer {
 #moviePosterDiv {
     background: inherit;
     border: solid 2px blue;  
-<<<<<<< HEAD
-    grid-area: wheel;
-    z-index: 5;
-    bottom: 0;
-    right: 0;
-=======
     grid-area: poster;
->>>>>>> 63800372e1f2823e2f20fa2ae7c98bf80231c76d
 }
 
 .z {
