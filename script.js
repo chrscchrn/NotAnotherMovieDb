@@ -47,73 +47,73 @@ $(document).ready(function () {
         console.log(includeActor, excludeActor);
         director = $("#includeDirector").val().toLowerCase().trim();
         console.log(director);
-        var IDqueryURL="https://api.themoviedb.org/3/search/person?api_key="+APIKey+"&language=en-US&page=1&include_adult=false&query="+includeActor;
-        
-        if(includeActor.trim()!=""){
+        var IDqueryURL = "https://api.themoviedb.org/3/search/person?api_key=" + APIKey + "&language=en-US&page=1&include_adult=false&query=" + includeActor;
+
+        if (includeActor.trim() != "") {
             $.ajax({
-        url: IDqueryURL,
-        method: "GET"
-        })
-        .then(function(response) {
-            // console.log(queryURL);
-            console.log(response);
-            personID=(response.results[0].id);
-            console.log(personID);
-            // console.log(queryURL);
-            maincall(personID);
-        });
+                url: IDqueryURL,
+                method: "GET"
+            })
+                .then(function (response) {
+                    // console.log(queryURL);
+                    console.log(response);
+                    personID = (response.results[0].id);
+                    console.log(personID);
+                    // console.log(queryURL);
+                    maincall(personID);
+                });
         }
-        else{
+        else {
             maincall(personID);
         }
     })
-    function maincall(personID){
-        var queryURL = "https://api.themoviedb.org/3/discover/movie?api_key="+APIKey+"&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_date.gte="+startYear+"-01-01&primary_release_date.lte="+endYear+"-12-31&vote_average.gte=6&with_people="+personID+"&with_genres="+genreID;        
+    function maincall(personID) {
+        var queryURL = "https://api.themoviedb.org/3/discover/movie?api_key=" + APIKey + "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_date.gte=" + startYear + "-01-01&primary_release_date.lte=" + endYear + "-12-31&vote_average.gte=6&with_people=" + personID + "&with_genres=" + genreID;
 
         $.ajax({
-        url: queryURL,
-        method: "GET"
+            url: queryURL,
+            method: "GET"
         })
-        .then(function(response) {
-            console.log(queryURL);
-            console.log(response);
-            console.log(response.results[0].poster_path);
-            var resInd=Math.floor(Math.random() * 20);
-            var poster=$("<img>");
-            poster.attr("src","https://image.tmdb.org/t/p/w500"+response.results[resInd].poster_path);
-            $("#posterslot").append(poster);
-            var movietitle=$("<h4>");
-            movietitle.text(response.results[resInd].title+"("+response.results[resInd].release_date.substring(0,4)+")");
-            $("#titlecard").append(movietitle);
+            .then(function (response) {
+                console.log(queryURL);
+                console.log(response);
+                console.log(response.results[0].poster_path);
+                var resInd = Math.floor(Math.random() * 20);
+                var poster = $("<img>");
+                poster.attr("src", "https://image.tmdb.org/t/p/w500" + response.results[resInd].poster_path);
+                $("#posterslot").append(poster);
+                var movietitle = $("<h4>");
+                movietitle.text(response.results[resInd].title + "(" + response.results[resInd].release_date.substring(0, 4) + ")");
+                $("#titlecard").append(movietitle);
 
-            // //movie poster generator
-            // //generate image
-            // //add class 
-            // //add src
-            // //repeat until done
-            // var myIndex = 0;
-            // slideshow();
+                // //movie poster generator
+                // //generate image
+                // //add class 
+                // //add src
+                // //repeat until done
+                // var myIndex = 0;
+                // slideshow();
 
-            // function slideshow() {
-            //     var i;
-            //     var x = $(".movieCovers");
-            //     for (i = 0; i < x.length; i++) {
-            //         x[i].style.display = "none";  
-            //     }
-            //     myIndex++;
-            //     if (myIndex > x.length) {myIndex = 1}    
-            //     x[myIndex-1].style.display = "block";  
-            //     setTimeout(slideshow, 150); // Change image every .15 seconds returns the id of the global var timeout
-            // }
-            // //button highlighter
-            //     //if statements for each
-            // $('#netflixIcon').css('background-color', '#ff8c00');
-            // $('#huluIcon').css('background-color', '#ff8c00');
-            // $('#primeIcon').css('background-color', '#ff8c00');
-            // $('#disneyIcon').css('background-color', '#ff8c00');
-        });
-        }
+                // function slideshow() {
+                //     var i;
+                //     var x = $(".movieCovers");
+                //     for (i = 0; i < x.length; i++) {
+                //         x[i].style.display = "none";  
+                //     }
+                //     myIndex++;
+                //     if (myIndex > x.length) {myIndex = 1}    
+                //     x[myIndex-1].style.display = "block";  
+                //     setTimeout(slideshow, 150); // Change image every .15 seconds returns the id of the global var timeout
+                // }
+                // //button highlighter
+                //     //if statements for each
+                // $('#netflixIcon').css('background-color', '#ff8c00');
+                // $('#huluIcon').css('background-color', '#ff8c00');
+                // $('#primeIcon').css('background-color', '#ff8c00');
+                // $('#disneyIcon').css('background-color', '#ff8c00');
+            });
+    }
 
-   
+
 })
 
