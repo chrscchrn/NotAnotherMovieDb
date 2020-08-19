@@ -72,6 +72,9 @@ footer {
     background: white;
     border: solid 2px blue;  
     grid-area: wheel;
+    z-index: 5;
+    bottom: 0;
+    right: 0;
 }
 
 .z {
@@ -86,7 +89,6 @@ label {
     
 }
 
-<<<<<<< HEAD
 footer {
     grid-area: footer;
     
@@ -96,6 +98,3 @@ footer {
     grid-template-areas:
     ". p p ."
 }
-=======
-
->>>>>>> e7afd525f38c0ebb3da38d30f4abdd3c273a49c4

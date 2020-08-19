@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
     const genres = [
         { "Genre": "Action", "ID": "28" },
         { "Genre": "Crime", "ID": "80" },
@@ -33,17 +32,18 @@ $(document).ready(function () {
 
     $('select').formSelect();
 
+    let startYear, endYear, includeActor, excludeActor, director;
     $("#submit").on("click", function (event) {
         event.preventDefault();
         genreID = $("#genreDropDown").val();
         console.log(genreID);
-        let startYear = $("#year1").val().trim();
-        let endYear = $("#year2").val().trim();
+        startYear = $("#year1").val().trim();
+        endYear = $("#year2").val().trim();
         console.log(startYear, endYear);
-        let includeActor = $("#includeActor").val().trim();
-        let excludeActor = $("#excludeActor").val().trim();
+        includeActor = $("#includeActor").val().toLowerCase().trim();
+        excludeActor = $("#excludeActor").val().toLowerCase().trim();
         console.log(includeActor, excludeActor);
-        let director = $("#includeDirector").val().trim();
+        director = $("#includeDirector").val().toLowerCase().trim();
         console.log(director);
     })
 
@@ -60,5 +60,6 @@ $(document).ready(function () {
             console.log(response);
 
         });
+
 })
 
