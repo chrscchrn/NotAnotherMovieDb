@@ -21,6 +21,7 @@ $(document).ready(function () {
         { "Genre": "War", "ID": "10752" },
         { "Genre": "Western", "ID": "37" }
     ]
+    let startYear, endYear, includeActor, excludeActor, director;
 
     for (let i = 0; i < genres.length; i++) {
         newGenre = $("<option>");
@@ -37,28 +38,54 @@ $(document).ready(function () {
         event.preventDefault();
         genreID = $("#genreDropDown").val();
         console.log(genreID);
-        
-        var queryURL = "https://api.themoviedb.org/3/discover/movie?api_key="+APIKey+"&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_date.gte=1990-01-01&primary_release_date.lte=1999-12-31&vote_average.gte=6&page=2&with_genres="+genreID;
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-        })
-            .then(function (response) {
-    
-                console.log(queryURL);
-                console.log(response);
-    
-            });
-        let startYear = $("#year1").val().trim();
-        let endYear = $("#year2").val().trim();
+        startYear = $("#year1").val().trim();
+        endYear = $("#year2").val().trim();
         console.log(startYear, endYear);
-        let includeActor = $("#includeActor").val().trim();
-        let excludeActor = $("#excludeActor").val().trim();
+        includeActor = $("#includeActor").val().trim();
+        excludeActor = $("#excludeActor").val().trim();
         console.log(includeActor, excludeActor);
-        let director = $("#includeDirector").val().trim();
+        director = $("#includeDirector").val().trim();
         console.log(director);
+        var IDqueryURL="https://api.themoviedb.org/3/search/person?api_key="+APIKey+"&language=en-US&page=1&include_adult=false&query="+includeActor;
+        
+        if(includeActor.trim()!=""){
+            $.ajax({
+        url: IDqueryURL,
+        method: "GET"
+        })
+        .then(function(response) {
+            // console.log(queryURL);
+            console.log(response);
+            personID=(response.results[0].id);
+            console.log(personID);
+            // console.log(queryURL);
+            maincall(personID);
+        });
+        }
+        else{
+            maincall(personID);
+        }
     })
+    function maincall(personID){
+        var queryURL = "https://api.themoviedb.org/3/discover/movie?api_key="+APIKey+"&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_date.gte="+startYear+"-01-01&primary_release_date.lte="+endYear+"-12-31&vote_average.gte=6&with_people="+personID+"&with_genres="+genreID;        
 
+        $.ajax({
+        url: queryURL,
+        method: "GET"
+        })
+        .then(function(response) {
+            console.log(queryURL);
+            console.log(response);
+            console.log(response.results[0].poster_path);
+            var resInd=Math.floor(Math.random() * 20);
+            var poster=$("<img>");
+            poster.attr("src","https://image.tmdb.org/t/p/w500"+response.results[resInd].poster_path);
+            $("#posterslot").append(poster);
+            var movietitle=$("<h4>");
+            movietitle.text(response.results[resInd].title+"("+response.results[resInd].release_date.substring(0,4)+")");
+            $("#titlecard").append(movietitle);
+        });
+        }
 
     // var queryURL = "https://api.themoviedb.org/3/discover/movie?api_key=5a3f3373b8ebcad2db18450af15ec4fd&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_date.gte=1990-01-01&primary_release_date.lte=1999-12-31&vote_average.gte=6&with_genres=28"
     // $.ajax({
