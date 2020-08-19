@@ -1,8 +1,5 @@
 $(document).ready(function () {
-<<<<<<< HEAD
-=======
     const APIKey = "5a3f3373b8ebcad2db18450af15ec4fd";
->>>>>>> 63800372e1f2823e2f20fa2ae7c98bf80231c76d
     const genres = [
         { "Genre": "Action", "ID": "28" },
         { "Genre": "Crime", "ID": "80" },
@@ -45,17 +42,10 @@ $(document).ready(function () {
         startYear = $("#year1").val().trim();
         endYear = $("#year2").val().trim();
         console.log(startYear, endYear);
-<<<<<<< HEAD
         includeActor = $("#includeActor").val().toLowerCase().trim();
         excludeActor = $("#excludeActor").val().toLowerCase().trim();
         console.log(includeActor, excludeActor);
         director = $("#includeDirector").val().toLowerCase().trim();
-=======
-        includeActor = $("#includeActor").val().trim();
-        excludeActor = $("#excludeActor").val().trim();
-        console.log(includeActor, excludeActor);
-        director = $("#includeDirector").val().trim();
->>>>>>> 63800372e1f2823e2f20fa2ae7c98bf80231c76d
         console.log(director);
         var IDqueryURL="https://api.themoviedb.org/3/search/person?api_key="+APIKey+"&language=en-US&page=1&include_adult=false&query="+includeActor;
         
@@ -122,12 +112,8 @@ $(document).ready(function () {
             // $('#primeIcon').css('background-color', '#ff8c00');
             // $('#disneyIcon').css('background-color', '#ff8c00');
         });
-<<<<<<< HEAD
-
-=======
         }
 
    
->>>>>>> 63800372e1f2823e2f20fa2ae7c98bf80231c76d
 })
 
