@@ -24,6 +24,15 @@ body {
     "footer footer footer footer";
 }
 
+footer {
+    grid-area: footer;
+    display: grid;
+    grid-template-columns: 1fr 5fr 5fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+    ". p p ."
+}
+
 .title {
     grid-area: header;
     font-size: 6.5rem;
@@ -54,8 +63,14 @@ body {
     background: inherit;
 }
 
-.wheel {
-    background: darkblue;
+/* #wheel {
+    background: white;
+    grid-area: wheel;
+} */
+
+#canvas {
+    background: white;
+    border: solid 2px blue;  
     grid-area: wheel;
 }
 
@@ -64,10 +79,14 @@ body {
     color: white;
 }
 
-#genreDropDown {
+
+input, 
+label {
     color: white;
+    
 }
 
+<<<<<<< HEAD
 footer {
     grid-area: footer;
     
@@ -77,3 +96,6 @@ footer {
     grid-template-areas:
     ". p p ."
 }
+=======
+
+>>>>>>> e7afd525f38c0ebb3da38d30f4abdd3c273a49c4

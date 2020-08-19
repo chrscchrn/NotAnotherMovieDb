@@ -1,25 +1,25 @@
 $(document).ready(function () {
 
     const genres = [
-        {"Genre": "Action", "ID": "28"},
-        {"Genre": "Crime", "ID": "80"},
-        {"Genre": "Documentary", "ID": "99"},
-        {"Genre": "Adventure", "ID": "12"},
-        {"Genre": "Animation", "ID": "16"},
-        {"Genre": "Comedy", "ID": "35"},
-        {"Genre": "Drama", "ID": "18"},
-        {"Genre": "Family", "ID": "10751"},
-        {"Genre": "Fantasy", "ID": "14"},
-        {"Genre": "History", "ID": "36"},
-        {"Genre": "Horror", "ID": "27"},
-        {"Genre": "Music", "ID": "10402"},
-        {"Genre": "Mystery", "ID": "9648"},
-        {"Genre": "Romance", "ID": "10749"},
-        {"Genre": "Science Fiction", "ID": "878"},
-        {"Genre": "TV Movie", "ID": "10770"},
-        {"Genre": "Thriller", "ID": "53"},
-        {"Genre": "War", "ID": "10752"},
-        {"Genre": "Western", "ID": "37"}
+        { "Genre": "Action", "ID": "28" },
+        { "Genre": "Crime", "ID": "80" },
+        { "Genre": "Documentary", "ID": "99" },
+        { "Genre": "Adventure", "ID": "12" },
+        { "Genre": "Animation", "ID": "16" },
+        { "Genre": "Comedy", "ID": "35" },
+        { "Genre": "Drama", "ID": "18" },
+        { "Genre": "Family", "ID": "10751" },
+        { "Genre": "Fantasy", "ID": "14" },
+        { "Genre": "History", "ID": "36" },
+        { "Genre": "Horror", "ID": "27" },
+        { "Genre": "Music", "ID": "10402" },
+        { "Genre": "Mystery", "ID": "9648" },
+        { "Genre": "Romance", "ID": "10749" },
+        { "Genre": "Science Fiction", "ID": "878" },
+        { "Genre": "TV Movie", "ID": "10770" },
+        { "Genre": "Thriller", "ID": "53" },
+        { "Genre": "War", "ID": "10752" },
+        { "Genre": "Western", "ID": "37" }
     ]
 
     for (let i = 0; i < genres.length; i++) {
@@ -30,12 +30,21 @@ $(document).ready(function () {
         $("#genreDropDown").append(newGenre);
     }
 
+
     $('select').formSelect();
 
-    $("#submit").on("click", function(event){
+    $("#submit").on("click", function (event) {
         event.preventDefault();
-        genreID= $("#genreDropDown").val();
+        genreID = $("#genreDropDown").val();
         console.log(genreID);
+        let startYear = $("#year1").val().trim();
+        let endYear = $("#year2").val().trim();
+        console.log(startYear, endYear);
+        let includeActor = $("#includeActor").val().trim();
+        let excludeActor = $("#excludeActor").val().trim();
+        console.log(includeActor, excludeActor);
+        let director = $("#includeDirector").val().trim();
+        console.log(director);
     })
 
     var APIKey = "5a3f3373b8ebcad2db18450af15ec4fd";
@@ -52,3 +61,4 @@ $(document).ready(function () {
 
         });
 })
+
