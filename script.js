@@ -21,7 +21,6 @@ $(document).ready(function () {
         { "Genre": "War", "ID": "10752" },
         { "Genre": "Western", "ID": "37" }
     ]
-    let startYear, endYear, includeActor, excludeActor, director;
 
     for (let i = 0; i < genres.length; i++) {
         newGenre = $("<option>");
