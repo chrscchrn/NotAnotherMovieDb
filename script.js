@@ -33,24 +33,33 @@ $(document).ready(function () {
 
     //select dropdown list
     $('select').formSelect();
+    let genreID ="";
     var personID="";
-    let startYear, endYear, includeActor, excludeActor, director ;
+    let startYear="";
+    let endYear="";
+    let includeActor="";
     $("#submit").on("click", function (event) {
         event.preventDefault();
-        genreID = $("#genreDropDown").val();
-        console.log(genreID);
-        startYear = $("#year1").val().trim();
-        endYear = $("#year2").val().trim();
+        if($("#genreDropDown").val()!==null){
+            genreID = $("#genreDropDown").val();
+        }
+        if($("#year1").val() !==""){
+            startYear = $("#year1").val();
+        }
+        else{
+            startYear =1990;
+        }
+        if($("#year2").val() !==""){
+            endYear = $("#year2").val();
+        }
+        else{
+            endYear = 2020;
+        }
         console.log(startYear, endYear);
-        includeActor = $("#includeActor").val().toLowerCase().trim();
-        excludeActor = $("#excludeActor").val().toLowerCase().trim();
-        console.log(includeActor, excludeActor);
-        director = $("#includeDirector").val().toLowerCase().trim();
-        console.log(director);
+        includeActor = $("#includeActor").val();
         $("#submit").attr("disabled", true);
 
         var IDqueryURL = "https://api.themoviedb.org/3/search/person?api_key="+APIKey+"&language=en-US&page=1&include_adult=false&query="+includeActor;
-
         if (includeActor.trim()!="") {
             $.ajax({
                 url: IDqueryURL,
@@ -81,7 +90,6 @@ $(document).ready(function () {
 
         .then(function(response) {
             console.log(response);
-            var resInd = Math.floor(Math.random() * 20);
             for (i = 0; i < response.results.length - 1; i++) {
                 var poster = $("<img>");
                 poster.attr("class", "moviePosters");
@@ -108,7 +116,7 @@ $(document).ready(function () {
                 }
                 else {
                     clearTimeout(random);
-                    
+                    $("#submit").attr("disabled", false);
                 }
                 
             }
@@ -131,4 +139,4 @@ $(document).ready(function () {
         });
     }
 
-
+})
