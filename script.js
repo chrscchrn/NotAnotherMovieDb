@@ -32,8 +32,8 @@ $(document).ready(function () {
 
 
     $('select').formSelect();
-
-    let startYear, endYear, includeActor, excludeActor, director, personID;
+    var personID="";
+    let startYear, endYear, includeActor, excludeActor, director ;
     $("#submit").on("click", function (event) {
         event.preventDefault();
         genreID = $("#genreDropDown").val();
@@ -76,7 +76,7 @@ $(document).ready(function () {
         .then(function(response) {
             console.log(queryURL);
             console.log(response);
-            console.log(response.results[0].poster_path);
+            // console.log(response.results[0].poster_path);
             var resInd=Math.floor(Math.random() * 20);
             var poster=$("<img>");
             poster.attr("src","https://image.tmdb.org/t/p/w500"+response.results[resInd].poster_path);
