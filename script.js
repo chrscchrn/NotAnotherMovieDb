@@ -40,6 +40,7 @@ $(document).ready(function () {
     let includeActor = "";
     $("#submit").on("click", function (event) {
         event.preventDefault();
+        var x
         if ($("#genreDropDown").val() !== null) {
             genreID = $("#genreDropDown").val();
         }
@@ -90,6 +91,7 @@ $(document).ready(function () {
 
             .then(function (response) {
                 console.log(response);
+                $("#moviePosterDiv").empty();
                 for (i = 0; i < response.results.length - 1; i++) {
                     var poster = $("<img>");
                     poster.attr("class", "moviePosters");
@@ -117,10 +119,13 @@ $(document).ready(function () {
                     else {
                         clearTimeout(random);
                         $("#submit").attr("disabled", false);
+                        console.log(myIndex-1); 
+                        passToUtelly(myIndex-1);
                     }
 
                 }
                 slideshow();
+                
 
                 // funciton LightsOn() {
                 //     $('#netflixIcon').css('background-color', '#ff8c00');
@@ -138,5 +143,7 @@ $(document).ready(function () {
 
             });
     }
-
+    function passToUtelly(id){
+        
+    }
 })
