@@ -98,7 +98,6 @@ $(document).ready(function () {
                     poster.attr("class", "moviePosters");
                     poster.attr("data-id", response.results[i].id);
                     poster.attr("src", "https://image.tmdb.org/t/p/w500" + response.results[i].poster_path);
-                    poster.attr("data-id", response.results[i].id);
                     $("#moviePosterDiv").prepend(poster);
                 }
 
@@ -183,31 +182,23 @@ var isprime=false;
 for(i=0;i<response.collection.locations.length;i++){
 if (response.collection.locations[i].name=="DisneyPlusIVAUS"){
     isdisney=true;
+    $("#disneyIcon").addClass("onStream");
 }
 if (response.collection.locations[i].name=="NetflixIVAUS"){
     isnetflix=true;
+    $("#netflixIcon").addClass("onStream");
 }if (response.collection.locations[i].name=="AmazonPrimeVideoIVAUS"){
     isprime=true;
+    $("#primeIcon").addClass("onStream");
 }if (response.collection.locations[i].name=="HuluIVAUS"){
     ishulu=true;
+    $("#huluIcon").addClass("onStream");
 }
 }
 console.log("isnetflix:"+isnetflix);
 console.log("ishulu:"+ishulu);
 console.log("isdisney:"+isdisney);
 console.log("isprime:"+isprime);
-if(isnetflix){
-    $("#netflixIcon").addClass("onStream");
-}
-if(ishulu){
-    $("#huluIcon").addClass("onStream");
-}
-if(isdisney){
-    $("#disneyIcon").addClass("onStream");
-}
-if(isprime){
-    $("#primeIcon").addClass("onStream");
-}
 });
     }
     
