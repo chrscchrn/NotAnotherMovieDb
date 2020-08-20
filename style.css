@@ -13,26 +13,21 @@ html {
     box-sizing: border-box;
 }
 
-.input-field {
-    background-color: rgb(15, 15, 16);
-    color: rgb(235, 235, 236);
-}
-
-.validate {
-    color: rgb(235, 235, 236);
-    text-align: start;
-    
-}
-
 body {
     display: grid;
-    grid-template-columns: 1fr 6fr 3fr 2fr;
+    grid-template-columns: 1fr 6fr 4fr 1fr;
     grid-template-rows: 1fr 1fr auto;
     grid-template-areas:
     ". header header ."
     ". intro icons ."
-    ". form poster ."
+    ". form poster poster"
     "footer footer footer footer";
+}
+
+input, 
+label {
+    color: white;
+    
 }
 
 footer {
@@ -44,53 +39,29 @@ footer {
     ". p p ."
 }
 
-.title {
-    grid-area: header;
-    font-size: 6.5rem;
-    font-weight: 700;
-    line-height: 0.8;
-    font-family: 'Special Elite', cursive;
-}
-
-.intro {
-    grid-area: intro;
-    align-self: end;
-    font-size: 3rem;
-    line-height: 1.4;
-}
-
 .icons {
     grid-area: icons;
+    align-self: center;
 }
 
 .form {
     grid-area: form;
-    /* background: inherit; */
     z-index: 1;
+    
+}
+
+.input-field {
+    background-color: rgb(15, 15, 16);
+    color: rgb(235, 235, 236);
 }
 
 .inherit {
     background: inherit;
 }
 
-.moviePoster {
-    height: inherit;
-    width: inherit;
-    overflow: hidden;
-}
-
 .button {
     border-radius: 5px;
-}
-
-/* #wheel {
-    background: white;
-    grid-area: wheel;
-} */
-
-#moviePosterDiv {
-    background: inherit;
-    grid-area: poster;
+    /* top: 5%; */
 }
 
 .z {
@@ -98,36 +69,102 @@ footer {
     color: white;
 }
 
-input, 
-label {
-    color: white;
+.validate {
+    color: rgb(235, 235, 236);
+    text-align: start;
     
 }
+
+#title {
+    grid-area: header;
+    font-size: 6.5rem;
+    font-weight: 700;
+    line-height: 0.8;
+    font-family: 'Special Elite', cursive;
+}
+
+#intro {
+    grid-area: intro;
+    align-self: end;
+    font-size: 3rem;
+    line-height: 1.4;
+}
+
+#iconHeader {
+    align-self: center top;
+    text-align: center;
+    grid-area: icons;
+}
+
+#moviePosterDiv {
+    background: inherit;
+    grid-area: poster;
+    position: relative;
+    overflow: hidden; 
+    align-content: center;
+}
+
+
+
+
 
 @media only screen and (max-width: 834px) {
     html {
         font-size: 14px;
     }
+
     body {
         display: grid;
-        grid-template-columns: 12fr;
+        grid-template-columns: 1fr 11fr;
         grid-template-rows: 1fr 1fr auto;
         grid-template-areas:
-        "header"
-        "intro"
-        "form"
-        "poster"
-        "icons"
-        "footer";
+        "header header"
+        "intro intro"
+        "form form"
+        "poster poster"
+        "icons icons"
+        "footer footer";
     }
 
+    #title {
+        font-size: 5rem;
+        text-align: center;
+    }
+
+    #intro {
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    #moviePosterDiv,
+    .moviePosters {
+        width: 100%;
+    }
+
+    #genreSelection,
+    #genreDropDown {
+        text-align: center;
+        align-items: center;
+    }
+
+    #info,
+    #subTitle {
+        text-align: center;
+    }
+
+    .icons {
+        width: 100%;
+    }
+
+    #submit {
+        align-items: center;
+    }
 }
 
 @media only screen and (max-width: 736px) {s
     html {
         font-size: 12px;
     }
-    
 }
 
 /* body {
@@ -140,4 +177,3 @@ label {
     ". form poster ."
     "footer footer footer footer";
 } */
-

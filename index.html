@@ -11,44 +11,44 @@
 </head>
 
 <body>
-    <h1 class="title">
+    <h1 id="title">
         Not Another Movie Database!
     </h1>
-    <p class="intro">
+    <p id="intro">
         The API that suggests a movie for you based on a series of filters, then tells you who provides it.
     </p>
-    
+    <h4 id="iconHeader">Streaming Services</h4>
     <section class="z icons">
         <button id="netflixIcon" class="inherit button">
-            <img src="netflix.ico" alt="Click for Netflix" width="150" height="150">
+            <img src="netflix.ico" alt="Click for Netflix" class="inherit" width="100" height="100">
         </button>
         <button id="huluIcon" class="inherit button">
-            <img src="hulu.png" alt="Click for Netflix" width="150" height="150">
+            <img src="hulu.png" alt="Click for Netflix" class="inherit" width="100" height="100">
         </button>
         <button id="primeIcon" class="inherit button">
-            <img src="amazon.png" alt="Click for Netflix" width="150" height="150">
+            <img src="amazon.png" alt="Click for Netflix" class="inherit" width="100" height="100">
         </button>
         <button id="disneyIcon" class="inherit button">
-            <img src="Disney.svg" alt="Click for Netflix" width="150" height="150">
+            <img src="Disney.svg" alt="Click for Netflix" class="inherit" width="100" height="100">
         </button>
     </section>
-   
+
 
     <section class="form z" id="filter">
         <div>
             <div>
-                <h3 class="subTitle">
+                <h3 id="subTitle">
                     Filter Search
                 </h3>
-                <h6>
+                <h6 id="info">
                     Select the genre from the dropdown list.
                 </h6>
 
                 <div class="input-field">
                     <select id="genreDropDown">
-                      <option disabled selected>Choose Genre</option>
+                        <option disabled selected>Choose Genre</option>
                     </select>
-                  </div>
+                </div>
 
                 <div class="row">
                     <div class="input-field col s6 z">
@@ -63,18 +63,18 @@
                 <div class="row">
                     <div class="input-field col s6 z">
                         <input placeholder="Actor" id="includeActor" type="text" class="validate z">
-                        <label for="year1">Enter to Include Actor</label>
+                        <label>Enter to Include Actor</label>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row lastButton">
                     <!-- <div class="input-field col s6 z">
                         <input placeholder="Director" id="includeDirector" type="text" class="validate z">
                         <label for="year1">Enter to Include Director</label>
                     </div> -->
-                    <button class="searchBtn inherit z button" id="submit" width="150" height="150">
+                    <button class="searchBtn inherit z" id="submit" width="150" height="150">
                         <label>Find my Movie</label>
                     </button>
-                    <p>Only genre is required</p>
+                    <!-- <p>Only genre is required</p> -->
                 </div>
             </div>
         </div>
@@ -83,8 +83,7 @@
     <div id="moviePosterDiv"></div>
     <footer>
         <div class="footer-content">
-            <p>yeah yeah yeah
-                <img src="netflix.png" height="5" width="5">
+            <p></p>
         </div>
     </footer>
 
@@ -93,3 +92,5 @@
     <script src="script.js"></script>
 
 </body>
+
+</html>
