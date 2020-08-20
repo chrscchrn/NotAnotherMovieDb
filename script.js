@@ -117,10 +117,13 @@ $(document).ready(function () {
 
     $("#reset").on("click", function(e){
         e.preventDefault();
-        console.log("This is working");
-        $("#year1").empty();
+        $("#year1").val("");
+        $("#year2").val("");
+        $("#includeActor").val("");
+        $("#excludeActor").val("");
+        $("#includeDirector").val("");
         $("#submit").attr("disabled", false);
+        })
     })
 
-})
 
