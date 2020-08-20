@@ -33,26 +33,24 @@ $(document).ready(function () {
 
     //select dropdown list
     $('select').formSelect();
-<<<<<<< HEAD
-
-    let startYear, endYear, includeActor, excludeActor, director, genreID;
-
-=======
     var personID="";
-    let startYear, endYear, includeActor, excludeActor, director ;
->>>>>>> 16ef8172c801550c34ce6233b54e1793e3751c1e
+    var genreID="";
+    let startYear=1900;
+    let endYear=2020;
+    let includeActor=""; 
     $("#submit").on("click", function (event) {
         event.preventDefault();
+        if($("#genreDropDown").val()!=null){
         genreID = $("#genreDropDown").val();
-        console.log(genreID);
-        startYear = $("#year1").val().trim();
+        }
+        console.log("genreID"+genreID);
+        console.log($("#year1").val());
+            startYear = $("#year1").val().trim();
         endYear = $("#year2").val().trim();
-        console.log(startYear, endYear);
+        console.log("dates"+startYear, endYear);
         includeActor = $("#includeActor").val().toLowerCase().trim();
-        excludeActor = $("#excludeActor").val().toLowerCase().trim();
-        console.log(includeActor, excludeActor);
-        director = $("#includeDirector").val().toLowerCase().trim();
-        console.log(director);
+        console.log("include actor"+includeActor);
+
 
         var IDqueryURL = "https://api.themoviedb.org/3/search/person?api_key="+APIKey+"&language=en-US&page=1&include_adult=false&query="+includeActor;
 
@@ -63,9 +61,9 @@ $(document).ready(function () {
             })
 
             .then(function(response) {
-                console.log(response); //good
+                console.log("actor response"+response); //good
                 var personID = response.results[0].id;
-                console.log(personID);
+                console.log("personID"+personID);
                 maincall(personID);
             });
         }
@@ -135,6 +133,5 @@ $(document).ready(function () {
         });
     }
 
-   
 })
 
