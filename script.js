@@ -33,45 +33,45 @@ $(document).ready(function () {
 
     //select dropdown list
     $('select').formSelect();
-    let genreID ="";
-    var personID="";
-    let startYear="";
-    let endYear="";
-    let includeActor="";
+    let genreID = "";
+    var personID = "";
+    let startYear = "";
+    let endYear = "";
+    let includeActor = "";
     $("#submit").on("click", function (event) {
         event.preventDefault();
-        if($("#genreDropDown").val()!==null){
+        if ($("#genreDropDown").val() !== null) {
             genreID = $("#genreDropDown").val();
         }
-        if($("#year1").val() !==""){
+        if ($("#year1").val() !== "") {
             startYear = $("#year1").val();
         }
-        else{
-            startYear =1990;
+        else {
+            startYear = 1990;
         }
-        if($("#year2").val() !==""){
+        if ($("#year2").val() !== "") {
             endYear = $("#year2").val();
         }
-        else{
+        else {
             endYear = 2020;
         }
         console.log(startYear, endYear);
         includeActor = $("#includeActor").val();
         $("#submit").attr("disabled", true);
 
-        var IDqueryURL = "https://api.themoviedb.org/3/search/person?api_key="+APIKey+"&language=en-US&page=1&include_adult=false&query="+includeActor;
-        if (includeActor.trim()!="") {
+        var IDqueryURL = "https://api.themoviedb.org/3/search/person?api_key=" + APIKey + "&language=en-US&page=1&include_adult=false&query=" + includeActor;
+        if (includeActor.trim() != "") {
             $.ajax({
                 url: IDqueryURL,
                 method: "GET"
             })
 
-            .then(function(response) {
-                console.log(response); //good
-                var personID = response.results[0].id;
-                console.log(personID);
-                maincall(personID);
-            });
+                .then(function (response) {
+                    console.log(response); //good
+                    var personID = response.results[0].id;
+                    console.log(personID);
+                    maincall(personID);
+                });
         }
 
         else {
@@ -81,62 +81,62 @@ $(document).ready(function () {
     })
 
     function maincall(personID) {
-        var queryURL = "https://api.themoviedb.org/3/discover/movie?api_key="+APIKey+"&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_date.gte="+startYear+"-01-01&primary_release_date.lte="+endYear+"-12-31&vote_average.gte=6&with_people="+personID+"&with_genres="+genreID;        
-        
+        var queryURL = "https://api.themoviedb.org/3/discover/movie?api_key=" + APIKey + "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_date.gte=" + startYear + "-01-01&primary_release_date.lte=" + endYear + "-12-31&vote_average.gte=6&with_people=" + personID + "&with_genres=" + genreID;
+
         $.ajax({
             url: queryURL,
             method: "GET"
         })
 
-        .then(function(response) {
-            console.log(response);
-            for (i = 0; i < response.results.length - 1; i++) {
-                var poster = $("<img>");
-                poster.attr("class", "moviePosters");
-                poster.attr("src","https://image.tmdb.org/t/p/w500" + response.results[i].poster_path);
-                $("#moviePosterDiv").prepend(poster);
-            }
-
-            var myIndex = 0;
-            var random;
-            var posterFunction;
-            var count = 0;
-            function slideshow() {
-                var i;
-                var x = document.getElementsByClassName("moviePosters");
-                for (i = 0; i < x.length; i++) {
-                    x[i].style.display = "none";  
+            .then(function (response) {
+                console.log(response);
+                for (i = 0; i < response.results.length - 1; i++) {
+                    var poster = $("<img>");
+                    poster.attr("class", "moviePosters");
+                    poster.attr("src", "https://image.tmdb.org/t/p/w500" + response.results[i].poster_path);
+                    $("#moviePosterDiv").prepend(poster);
                 }
-                myIndex++;
-                count += 1;
-                (myIndex > x.length) ? myIndex = 1 : null;    
-                x[myIndex-1].style.display = ("block");  
-                if (count < (Math.floor(Math.random() * 40) + 27)) {
-                    posterFunction = setTimeout(slideshow, 150);
-                }
-                else {
-                    clearTimeout(random);
-                    $("#submit").attr("disabled", false);
-                }
-                
-            }
-            slideshow();
 
-            // funciton LightsOn() {
-            //     $('#netflixIcon').css('background-color', '#ff8c00');
-            //     $('#huluIcon').css('background-color', '#ff8c00');
-            //     $('#primeIcon').css('background-color', '#ff8c00');
-            //     $('#disneyIcon').css('background-color', '#ff8c00');
-            // }
-            
-                
-                
+                var myIndex = 0;
+                var random;
+                var posterFunction;
+                var count = 0;
+                function slideshow() {
+                    var i;
+                    var x = document.getElementsByClassName("moviePosters");
+                    for (i = 0; i < x.length; i++) {
+                        x[i].style.display = "none";
+                    }
+                    myIndex++;
+                    count += 1;
+                    (myIndex > x.length) ? myIndex = 1 : null;
+                    x[myIndex - 1].style.display = ("block");
+                    if (count < (Math.floor(Math.random() * 40) + 27)) {
+                        posterFunction = setTimeout(slideshow, 150);
+                    }
+                    else {
+                        clearTimeout(random);
+                        $("#submit").attr("disabled", false);
+                    }
 
-            //button highlighter
+                }
+                slideshow();
+
+                // funciton LightsOn() {
+                //     $('#netflixIcon').css('background-color', '#ff8c00');
+                //     $('#huluIcon').css('background-color', '#ff8c00');
+                //     $('#primeIcon').css('background-color', '#ff8c00');
+                //     $('#disneyIcon').css('background-color', '#ff8c00');
+                // }
+
+
+
+
+                //button highlighter
                 //if statements for each
-                    // 
-            
-        });
+                // 
+
+            });
     }
 
 })
