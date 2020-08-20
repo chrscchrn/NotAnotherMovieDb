@@ -33,14 +33,8 @@ $(document).ready(function () {
 
     //select dropdown list
     $('select').formSelect();
-<<<<<<< HEAD
-
-    let startYear, endYear, includeActor, excludeActor, director, genreID;
-
-=======
     var personID="";
     let startYear, endYear, includeActor, excludeActor, director ;
->>>>>>> 16ef8172c801550c34ce6233b54e1793e3751c1e
     $("#submit").on("click", function (event) {
         event.preventDefault();
         genreID = $("#genreDropDown").val();
@@ -51,8 +45,8 @@ $(document).ready(function () {
         includeActor = $("#includeActor").val().toLowerCase().trim();
         excludeActor = $("#excludeActor").val().toLowerCase().trim();
         console.log(includeActor, excludeActor);
-        director = $("#includeDirector").val().toLowerCase().trim();
-        console.log(director);
+        // director = $("#includeDirector").val().toLowerCase().trim();
+        // console.log(director);
 
         var IDqueryURL = "https://api.themoviedb.org/3/search/person?api_key="+APIKey+"&language=en-US&page=1&include_adult=false&query="+includeActor;
 
@@ -97,26 +91,33 @@ $(document).ready(function () {
             var random;
             var posterFunction;
             var count = 0;
+
             function slideshow() {
                 var i;
+                var calumsVar;
                 var x = document.getElementsByClassName("moviePosters");
+
                 for (i = 0; i < x.length; i++) {
                     x[i].style.display = "none";  
-                }
+                } 
+
                 myIndex++;
                 count += 1;
-                (myIndex > x.length) ? myIndex = 1 : null;    
-                x[myIndex-1].style.display = ("block");  
+                (myIndex > x.length) ? myIndex = 1 : myIndex - 0;    
+                x[myIndex-1].style.display = ("block");
+
                 if (count < (Math.floor(Math.random() * 40) + 27)) {
                     posterFunction = setTimeout(slideshow, 150);
                 }
                 else {
-                    clearTimeout(random);
                     
+                    clearTimeout();
+                    return myIndex - 1;
                 }
                 
             }
-            slideshow();
+            calumsVar = slideshow();
+            console.log(calumsVar);
 
             // funciton LightsOn() {
             //     $('#netflixIcon').css('background-color', '#ff8c00');
@@ -125,13 +126,7 @@ $(document).ready(function () {
             //     $('#disneyIcon').css('background-color', '#ff8c00');
             // }
             
-                
-                
-
-            //button highlighter
-                //if statements for each
-                    // 
-            
+            //empty movie poster div
         });
     }
 
