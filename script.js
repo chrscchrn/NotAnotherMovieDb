@@ -33,7 +33,7 @@ $(document).ready(function () {
 
     $('select').formSelect();
 
-    let startYear, endYear, includeActor, excludeActor, director;
+    let startYear, endYear, includeActor, excludeActor, director, personID;
     $("#submit").on("click", function (event) {
         event.preventDefault();
         genreID = $("#genreDropDown").val();
