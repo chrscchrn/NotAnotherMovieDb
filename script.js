@@ -85,7 +85,6 @@ $(document).ready(function () {
 
         .then(function(response) {
             console.log(response);
-<<<<<<< HEAD
             var resInd = Math.floor(Math.random() * 20);
             for (i = 0; i < response.results.length - 1; i++) {
                 var poster = $("<img>");
@@ -124,35 +123,6 @@ $(document).ready(function () {
             //     $('#huluIcon').css('background-color', '#ff8c00');
             //     $('#primeIcon').css('background-color', '#ff8c00');
             //     $('#disneyIcon').css('background-color', '#ff8c00');
-=======
-            // console.log(response.results[0].poster_path);
-            var resInd=Math.floor(Math.random() * 20);
-            var poster=$("<img>");
-            poster.attr("src","https://image.tmdb.org/t/p/w500"+response.results[resInd].poster_path);
-            $("#posterslot").append(poster);
-            var movietitle=$("<h4>");
-            movietitle.text(response.results[resInd].title+"("+response.results[resInd].release_date.substring(0,4)+")");
-            $("#titlecard").append(movietitle);
-
-            // //movie poster generator
-            // //generate image
-            // //add class 
-            // //add src
-            // //repeat until done
-            // var myIndex = 0;
-            // slideshow();
-
-            // function slideshow() {
-            //     var i;
-            //     var x = $(".movieCovers");
-            //     for (i = 0; i < x.length; i++) {
-            //         x[i].style.display = "none";  
-            //     }
-            //     myIndex++;
-            //     if (myIndex > x.length) {myIndex = 1}    
-            //     x[myIndex-1].style.display = "block";  
-            //     setTimeout(slideshow, 150); // Change image every .15 seconds returns the id of the global var timeout
->>>>>>> 16ef8172c801550c34ce6233b54e1793e3751c1e
             // }
             
                 
