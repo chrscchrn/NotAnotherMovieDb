@@ -32,8 +32,8 @@ $(document).ready(function () {
 
 
     $('select').formSelect();
-
-    let startYear, endYear, includeActor, excludeActor, director;
+    var personID="";
+    let startYear, endYear, includeActor, excludeActor, director ;
     $("#submit").on("click", function (event) {
         event.preventDefault();
         genreID = $("#genreDropDown").val();
@@ -75,17 +75,17 @@ $(document).ready(function () {
             url: queryURL,
             method: "GET"
         })
-            .then(function (response) {
-                console.log(queryURL);
-                console.log(response);
-                console.log(response.results[0].poster_path);
-                var resInd = Math.floor(Math.random() * 20);
-                var poster = $("<img>");
-                poster.attr("src", "https://image.tmdb.org/t/p/w500" + response.results[resInd].poster_path);
-                $("#posterslot").append(poster);
-                var movietitle = $("<h4>");
-                movietitle.text(response.results[resInd].title + "(" + response.results[resInd].release_date.substring(0, 4) + ")");
-                $("#titlecard").append(movietitle);
+        .then(function(response) {
+            console.log(queryURL);
+            console.log(response);
+            // console.log(response.results[0].poster_path);
+            var resInd=Math.floor(Math.random() * 20);
+            var poster=$("<img>");
+            poster.attr("src","https://image.tmdb.org/t/p/w500"+response.results[resInd].poster_path);
+            $("#posterslot").append(poster);
+            var movietitle=$("<h4>");
+            movietitle.text(response.results[resInd].title+"("+response.results[resInd].release_date.substring(0,4)+")");
+            $("#titlecard").append(movietitle);
 
                 // //movie poster generator
                 // //generate image
