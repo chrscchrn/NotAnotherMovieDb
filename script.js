@@ -96,6 +96,7 @@ $(document).ready(function () {
                     var poster = $("<img>");
                     poster.attr("class", "moviePosters");
                     poster.attr("src", "https://image.tmdb.org/t/p/w500" + response.results[i].poster_path);
+                    poster.attr("data-id", response.results[i].id);
                     $("#moviePosterDiv").prepend(poster);
                 }
 
@@ -119,8 +120,7 @@ $(document).ready(function () {
                     else {
                         clearTimeout(random);
                         $("#submit").attr("disabled", false);
-                        console.log(myIndex-1); 
-                        passToUtelly(myIndex-1);
+                        passToUtelly();
                     }
 
                 }
@@ -143,7 +143,11 @@ $(document).ready(function () {
 
             });
     }
-    function passToUtelly(id){
-        
+    function passToUtelly(){
+        var x = $(`.moviePosters`).filter(function () {
+            return this.style.display == 'block';
+        });
+        const movieId = $(x).attr("data-id");
+        console.log(movieId);
     }
 })
