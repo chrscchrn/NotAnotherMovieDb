@@ -99,7 +99,6 @@ $(document).ready(function () {
                     poster.attr("class", "moviePosters");
                     poster.attr("data-id", response.results[i].id);
                     poster.attr("src", "https://image.tmdb.org/t/p/w500" + response.results[i].poster_path);
-                    poster.attr("data-id", response.results[i].id);
                     $("#moviePosterDiv").prepend(poster);
                 }
 
