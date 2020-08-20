@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>movieDb</title>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -15,21 +15,20 @@
         Not Another Movie Database!
     </h1>
     <p class="intro">
-        The API that lets you select a series of filters to randomly generate a movie along with the streaming services
-        its on.
+        The API that suggests a movie for you based on a series of filters, then tells you who provides it.
     </p>
 
     <section class="z icons">
-        <button id="netflixIcon" class="inherit">
+        <button id="netflixIcon" class="inherit button">
             <img src="netflix.ico" alt="Click for Netflix" width="150" height="150">
         </button>
-        <button id="huluIcon" class="inherit">
+        <button id="huluIcon" class="inherit button">
             <img src="hulu.png" alt="Click for Netflix" width="150" height="150">
         </button>
-        <button id="primeIcon" class="inherit">
+        <button id="primeIcon" class="inherit button">
             <img src="amazon.png" alt="Click for Netflix" width="150" height="150">
         </button>
-        <button id="disneyIcon" class="inherit">
+        <button id="disneyIcon" class="inherit button">
             <img src="Disney.svg" alt="Click for Netflix" width="150" height="150">
         </button>
     </section>
@@ -47,9 +46,9 @@
 
                 <div class="input-field">
                     <select id="genreDropDown">
-                        <option disabled selected selected="selected">Choose Genre</option>
+                      <option disabled selected>Choose Genre</option>
                     </select>
-                </div>
+                  </div>
 
                 <div class="row">
                     <div class="input-field col s6 z">
@@ -72,11 +71,11 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s6 z">
+                    <!-- <div class="input-field col s6 z">
                         <input placeholder="Director" id="includeDirector" type="text" class="validate z">
                         <label for="year1">Enter to Include Director</label>
-                    </div>
-                    <button class="searchBtn inherit z" id="submit" width="150" height="150">
+                    </div> -->
+                    <button class="searchBtn inherit z button" id="submit" width="150" height="150">
                         <label>Find my Movie</label>
                     </button>
                     <button class="searchBtn inherit z" id="reset" width="150" height="150">
