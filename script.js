@@ -40,6 +40,7 @@ $(document).ready(function () {
     let includeActor = "";
     $("#submit").on("click", function (event) {
         event.preventDefault();
+        $("section button").removeClass("onStream");
         var x
         if ($("#genreDropDown").val() !== null) {
             genreID = $("#genreDropDown").val();
@@ -98,6 +99,7 @@ $(document).ready(function () {
                     poster.attr("class", "moviePosters");
                     poster.attr("data-id", response.results[i].id);
                     poster.attr("src", "https://image.tmdb.org/t/p/w500" + response.results[i].poster_path);
+                    poster.attr("data-id", response.results[i].id);
                     $("#moviePosterDiv").prepend(poster);
                 }
 
@@ -121,7 +123,6 @@ $(document).ready(function () {
                     else {
                         clearTimeout(random);
                         $("#submit").attr("disabled", false);
-                        console.log(myIndex-1); 
                         passToUtelly();
                     }
 
@@ -206,6 +207,18 @@ console.log("isnetflix:"+isnetflix);
 console.log("ishulu:"+ishulu);
 console.log("isdisney:"+isdisney);
 console.log("isprime:"+isprime);
+if(isnetflix){
+    $("#netflixIcon").addClass("onStream");
+}
+if(ishulu){
+    $("#huluIcon").addClass("onStream");
+}
+if(isdisney){
+    $("#disneyIcon").addClass("onStream");
+}
+if(isprime){
+    $("#primeIcon").addClass("onStream");
+}
 });
     }
     

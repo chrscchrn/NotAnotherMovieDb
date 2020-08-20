@@ -104,8 +104,9 @@ footer {
     align-content: center;
 }
 
-
-
+.onStream {
+    background-color: green;
+}
 
 
 @media only screen and (max-width: 834px) {
