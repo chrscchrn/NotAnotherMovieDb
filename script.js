@@ -82,6 +82,7 @@ $(document).ready(function () {
     })
 
     function maincall(personID) {
+        
         var queryURL = "https://api.themoviedb.org/3/discover/movie?api_key=" + APIKey + "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_date.gte=" + startYear + "-01-01&primary_release_date.lte=" + endYear + "-12-31&vote_average.gte=6&with_people=" + personID + "&with_genres=" + genreID;
 
         $.ajax({
@@ -142,6 +143,9 @@ $(document).ready(function () {
                 //if statements for each
                 // 
 
+            }).catch(err=>{
+                console.log(err);
+                return;
             });
     }
     function passToUtelly(){
@@ -182,13 +186,20 @@ var isprime=false;
 for(i=0;i<response.collection.locations.length;i++){
 if (response.collection.locations[i].name=="DisneyPlusIVAUS"){
     isdisney=true;
+    console.log(response.collection.locations[i].url);
 }
 if (response.collection.locations[i].name=="NetflixIVAUS"){
     isnetflix=true;
+    console.log(response.collection.locations[i].url);
+
 }if (response.collection.locations[i].name=="AmazonPrimeVideoIVAUS"){
     isprime=true;
+    console.log(response.collection.locations[i].url);
+
 }if (response.collection.locations[i].name=="HuluIVAUS"){
     ishulu=true;
+    console.log(response.collection.locations[i].url);
+
 }
 }
 console.log("isnetflix:"+isnetflix);
