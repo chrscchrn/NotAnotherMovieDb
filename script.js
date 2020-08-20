@@ -40,6 +40,7 @@ $(document).ready(function () {
     let includeActor = "";
     $("#submit").on("click", function (event) {
         event.preventDefault();
+        $("section button").removeClass("onStream");
         var x
         if ($("#genreDropDown").val() !== null) {
             genreID = $("#genreDropDown").val();
@@ -195,6 +196,18 @@ console.log("isnetflix:"+isnetflix);
 console.log("ishulu:"+ishulu);
 console.log("isdisney:"+isdisney);
 console.log("isprime:"+isprime);
+if(isnetflix){
+    $("#netflixIcon").addClass("onStream");
+}
+if(ishulu){
+    $("#huluIcon").addClass("onStream");
+}
+if(isdisney){
+    $("#disneyIcon").addClass("onStream");
+}
+if(isprime){
+    $("#primeIcon").addClass("onStream");
+}
 });
     }
     
