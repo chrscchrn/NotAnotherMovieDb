@@ -40,6 +40,7 @@ $(document).ready(function () {
     let includeActor = "";
     $("#submit").on("click", function (event) {
         event.preventDefault();
+        $("section button").removeClass("onStream");
         isnetflix = false;
         ishulu = false;
         isdisney = false;
@@ -168,7 +169,6 @@ $(document).ready(function () {
             }
         }
         $.ajax(settings).done(function (response) {
-            $("section button").removeClass("onstream");
             console.log(response);
             var isnetflix = false;
             var ishulu = false;
@@ -186,6 +186,9 @@ $(document).ready(function () {
                     console.log(response.collection.locations[i].url);
                     $("#disneyIcon").addClass("onStream");
                     disI = response.collection.locations[i].url;
+                    // var disTag = $("<a>");
+                    // disTag.attr("href", "disI");
+                    // $("#disneyIcon").append(disTag);
                 }
                 if (response.collection.locations[i].name == "NetflixIVAUS") {
                     isnetflix = true;
@@ -211,22 +214,23 @@ $(document).ready(function () {
             console.log("ishulu:" + ishulu);
             console.log("isdisney:" + isdisney);
             console.log("isprime:" + isprime);
-
+            console.log(disI, priI, huI, netI);
+            
             $("#disneyIcon").on("click", function (event) {
                 event.preventDefault();
-                (disI = "") ? null : window.open(disI);
+                (disI == "") ? null : window.open(disI);
             })
             $("#primeIcon").on("click", function (event) {
                 event.preventDefault();
-                (priI = "") ? null : window.open(priI);
+                (priI == "") ? null : window.open(priI);
             })
             $("#huluIcon").on("click", function (event) {
                 event.preventDefault();
-                (huI = "") ? null : window.open(huI);
+                (huI == "") ? null : window.open(huI);
             })
             $("#netflixIcon").on("click", function (event) {
                 event.preventDefault();
-                (netI = "") ? null : window.open(netI);
+                (netI == "") ? null : window.open(netI);
             })
         });
     }

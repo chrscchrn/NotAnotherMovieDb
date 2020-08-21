@@ -16,13 +16,4 @@ INCLUDED APIs:
 - Utelly
 - (The Movie Db)
 
-TASK BREAKDOWN:
 
-    Front End:
-    - HTML(Chris)
-    - CSS(Chris)
-    - JS DOM manipulation (Nolan)
-    - JS wheel animation (TBD)
-    Back End:
-    - Utelly API (Calum)
-    - (Genre Db) API (Calum)
