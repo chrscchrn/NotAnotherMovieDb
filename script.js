@@ -38,6 +38,7 @@ $(document).ready(function () {
     let startYear = "";
     let endYear = "";
     let includeActor = "";
+
     $("#submit").on("click", function (event) {
         event.preventDefault();
         $("section button").removeClass("onStream");
@@ -106,7 +107,9 @@ $(document).ready(function () {
                 var random;
                 var posterFunction;
                 var count = 0;
+
                 function slideshow() {
+
                     var i;
                     var x = document.getElementsByClassName("moviePosters");
                     for (i = 0; i < x.length; i++) {
@@ -115,7 +118,9 @@ $(document).ready(function () {
                     myIndex++;
                     count += 1;
                     (myIndex > x.length) ? myIndex = 1 : null;
-                    x[myIndex - 1].style.display = ("block");
+                    if (!x[myIndex]) {
+                        x[myIndex - 1].style.display = ("block");
+                    }
                     if (count < (Math.floor(Math.random() * 40) + 27)) {
                         posterFunction = setTimeout(slideshow, 150);
                     }
@@ -124,101 +129,110 @@ $(document).ready(function () {
                         $("#submit").attr("disabled", false);
                         passToUtelly();
                     }
-
                 }
                 slideshow();
-                
-
-                // funciton LightsOn() {
-                //     $('#netflixIcon').css('background-color', '#ff8c00');
-                //     $('#huluIcon').css('background-color', '#ff8c00');
-                //     $('#primeIcon').css('background-color', '#ff8c00');
-                //     $('#disneyIcon').css('background-color', '#ff8c00');
-                // }
-
-
-
-
-                //button highlighter
-                //if statements for each
-                // 
-
             }).catch(err=>{
                 console.log(err);
                 return;
             });
     }
-    function passToUtelly(){
+    function passToUtelly() {
+
         var x = $('.moviePosters').filter(function () { 
             return this.style.display == 'block';
         });
+
         const movieId = $(x).attr("data-id");
         console.log(movieId);
         var externalQuery="https://api.themoviedb.org/3/movie/"+movieId+"/external_ids?api_key=5a3f3373b8ebcad2db18450af15ec4fd";
-            $.ajax({
+            
+        $.ajax({
             url: externalQuery,
             method: "GET"
-            })
-            .then(function(response) {
+        })
+        .then(function(response) {
             console.log(externalQuery);
             console.log(response.imdb_id);
-            imdbID=response.imdb_id;
+            imdbID = response.imdb_id;
             utellycall(imdbID);
-    })}
-    function utellycall(imdbID){
-        var settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": "https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/idlookup?country=us&source_id="+imdbID+"&source=imdb",
-        "method": "GET",
-        "headers": {
-        "x-rapidapi-host": "utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com",
-        "x-rapidapi-key": "9b41398bccmsh054a4c1235dff30p1c1836jsn95542e375cf5"
-        }
-        }
-
-$.ajax(settings).done(function (response) {
-console.log(response);
-var isnetflix=false;
-var ishulu=false;
-var isdisney=false;
-var isprime=false;
-for(i=0;i<response.collection.locations.length;i++){
-if (response.collection.locations[i].name=="DisneyPlusIVAUS"){
-    isdisney=true;
-    console.log(response.collection.locations[i].url);
-}
-if (response.collection.locations[i].name=="NetflixIVAUS"){
-    isnetflix=true;
-    console.log(response.collection.locations[i].url);
-
-}if (response.collection.locations[i].name=="AmazonPrimeVideoIVAUS"){
-    isprime=true;
-    console.log(response.collection.locations[i].url);
-
-}if (response.collection.locations[i].name=="HuluIVAUS"){
-    ishulu=true;
-    console.log(response.collection.locations[i].url);
-
-}
-}
-console.log("isnetflix:"+isnetflix);
-console.log("ishulu:"+ishulu);
-console.log("isdisney:"+isdisney);
-console.log("isprime:"+isprime);
-if(isnetflix){
-    $("#netflixIcon").addClass("onStream");
-}
-if(ishulu){
-    $("#huluIcon").addClass("onStream");
-}
-if(isdisney){
-    $("#disneyIcon").addClass("onStream");
-}
-if(isprime){
-    $("#primeIcon").addClass("onStream");
-}
-});
+        })
     }
-    
+    function utellycall(imdbID) {
+
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/idlookup?country=us&source_id="+imdbID+"&source=imdb",
+            "method": "GET",
+            "headers": {
+            "x-rapidapi-host": "utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com",
+            "x-rapidapi-key": "9b41398bccmsh054a4c1235dff30p1c1836jsn95542e375cf5"
+            }
+        }
+
+        $.ajax(settings).done(function (response) {
+
+            console.log(response);
+            var isnetflix = false;
+            var ishulu = false;
+            var isdisney = false;
+            var isprime = false;
+
+            var netI = "";
+            var huI = "";
+            var priI = "";
+            var disI = "";
+
+            for (i = 0; i < response.collection.locations.length; i++){
+                if (response.collection.locations[i].name == "DisneyPlusIVAUS") {
+                    isdisney = true;
+                    console.log(response.collection.locations[i].url);
+                    $("#disneyIcon").addClass("onStream");
+                    disI = response.collection.locations[i].url;
+                }
+                if (response.collection.locations[i].name == "NetflixIVAUS") {
+                    isnetflix = true;
+                    console.log(response.collection.locations[i].url);
+                    $("#netflixIcon").addClass("onStream");
+                    netI = response.collection.locations[i].url;
+                }
+                if (response.collection.locations[i].name == "AmazonPrimeVideoIVAUS") {
+                    isprime = true;
+                    console.log(response.collection.locations[i].url);
+                    $("#primeIcon").addClass("onStream");
+                    priI = response.collection.locations[i].url;
+                }
+                if (response.collection.locations[i].name == "HuluIVAUS") {
+                    ishulu = true;
+                    console.log(response.collection.locations[i].url);
+                    $("#huluIcon").addClass("onStream");
+                    huI = response.collection.locations[i].url;
+                }
+            }
+
+            console.log("isnetflix:" + isnetflix);
+            console.log("ishulu:" + ishulu);
+            console.log("isdisney:" + isdisney);
+            console.log("isprime:" + isprime);
+
+            $("#disneyIcon").on("click", function (event) {
+                event.preventDefault();
+                window.open(disI);
+            })
+            $("#primeIcon").on("click", function (event) {
+                event.preventDefault();
+                window.open(priI);
+            })
+            $("#huluIcon").on("click", function (event) {
+                event.preventDefault();
+                window.open(huI);
+            })
+            $("#netflixIcon").on("click", function (event) {
+                event.preventDefault();
+                window.open(netI);
+            })
+            
+        });
+    }
+        
 })

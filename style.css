@@ -61,6 +61,7 @@ footer {
 
 .button {
     border-radius: 5px;
+    border: solid 1px rgba(240, 239, 239, 0.507);
     /* top: 5%; */
 }
 
@@ -94,6 +95,7 @@ footer {
     align-self: center top;
     text-align: center;
     grid-area: icons;
+    border: bottom 1px whitesmoke;
 }
 
 #moviePosterDiv {
@@ -137,6 +139,13 @@ footer {
         font-size: 2rem;
     }
 
+    #genreDiv {
+        align-self: center;
+        margin-left: 10px;
+        width: 94%;
+    }
+    
+    
     #moviePosterDiv,
     .moviePosters {
         width: 100%;
@@ -154,11 +163,13 @@ footer {
     }
 
     .icons {
-        width: 100%;
+        /* width: 100%; */
+        
     }
 
     #submit {
-        align-items: center;
+        align-self: flex-start;
+        
     }
 }
 
