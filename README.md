@@ -1,4 +1,4 @@
-# NotAnotherMovieDb
+# Not Another Movie Database!
 
 PROJECT DESCRIPTION:
 An app that lets the user select a series of filters to randomly select a suggested movie on whatever streaming services they may have. These filters include: Genre, Streaming Services these titles are on, release year, actors, and directors.
@@ -8,13 +8,13 @@ USER STORY:
 As an indecisive movie lover, I want to not spend the length of a movie choosing which movie to watch so that I can watch more movies. 
 The motivation for development is we consistently spend the average length of a movie picking which movie to watch.
 
-WIREFRAME:
-Desktop: [Click Here](movie_wireframe.png)
-Mobile: Wheel will be under search criteria element
+
+Direct Link: [Click Here](https://chrscchrn.github.io/ProjectOne/)
+
 
 INCLUDED APIs:
 - Utelly
-- (Use genre Db)
+- (The Movie Db)
 
 TASK BREAKDOWN:
 
