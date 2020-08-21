@@ -38,10 +38,12 @@ $(document).ready(function () {
     let startYear = "";
     let endYear = "";
     let includeActor = "";
-
     $("#submit").on("click", function (event) {
         event.preventDefault();
-        $("section button").removeClass("onStream");
+        isnetflix = false;
+        ishulu = false;
+        isdisney = false;
+        isprime = false;
         var x
         if ($("#genreDropDown").val() !== null) {
             genreID = $("#genreDropDown").val();
@@ -105,11 +107,8 @@ $(document).ready(function () {
 
                 var myIndex = 0;
                 var random;
-                var posterFunction;
                 var count = 0;
-
                 function slideshow() {
-
                     var i;
                     var x = document.getElementsByClassName("moviePosters");
                     for (i = 0; i < x.length; i++) {
@@ -118,58 +117,56 @@ $(document).ready(function () {
                     myIndex++;
                     count += 1;
                     (myIndex > x.length) ? myIndex = 1 : null;
-                    if (!x[myIndex]) {
-                        x[myIndex - 1].style.display = ("block");
-                    }
+                    x[myIndex - 1].style.display = ("block");
                     if (count < (Math.floor(Math.random() * 40) + 27)) {
-                        posterFunction = setTimeout(slideshow, 150);
+                        setTimeout(slideshow, 150);
                     }
                     else {
                         clearTimeout(random);
                         $("#submit").attr("disabled", false);
+                        console.log(myIndex-1); 
                         passToUtelly();
                     }
+
                 }
                 slideshow();
+
+
             }).catch(err=>{
                 console.log(err);
                 return;
             });
     }
-    function passToUtelly() {
-
+    function passToUtelly(){
         var x = $('.moviePosters').filter(function () { 
             return this.style.display == 'block';
         });
-
         const movieId = $(x).attr("data-id");
         console.log(movieId);
         var externalQuery="https://api.themoviedb.org/3/movie/"+movieId+"/external_ids?api_key=5a3f3373b8ebcad2db18450af15ec4fd";
-            
-        $.ajax({
-            url: externalQuery,
-            method: "GET"
-        })
-        .then(function(response) {
-            console.log(externalQuery);
-            console.log(response.imdb_id);
-            imdbID = response.imdb_id;
-            utellycall(imdbID);
-        })
+            $.ajax({
+                url: externalQuery,
+                method: "GET"
+            })
+
+            .then(function(response) {
+                console.log(externalQuery);
+                console.log(response.imdb_id);
+                imdbID=response.imdb_id;
+                utellycall(imdbID);
+            })
     }
-    function utellycall(imdbID) {
-
+    function utellycall(imdbID){
         var settings = {
-            "async": true,
-            "crossDomain": true,
-            "url": "https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/idlookup?country=us&source_id="+imdbID+"&source=imdb",
-            "method": "GET",
-            "headers": {
-            "x-rapidapi-host": "utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com",
-            "x-rapidapi-key": "9b41398bccmsh054a4c1235dff30p1c1836jsn95542e375cf5"
-            }
+        "async": true,
+        "crossDomain": true,
+        "url": "https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/idlookup?country=us&source_id="+imdbID+"&source=imdb",
+        "method": "GET",
+        "headers": {
+        "x-rapidapi-host": "utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com",
+        "x-rapidapi-key": "9b41398bccmsh054a4c1235dff30p1c1836jsn95542e375cf5"
         }
-
+        }
         $.ajax(settings).done(function (response) {
 
             console.log(response);
@@ -183,7 +180,7 @@ $(document).ready(function () {
             var priI = "";
             var disI = "";
 
-            for (i = 0; i < response.collection.locations.length; i++){
+            for (i = 0; i < response.collection.locations.length; i++) {
                 if (response.collection.locations[i].name == "DisneyPlusIVAUS") {
                     isdisney = true;
                     console.log(response.collection.locations[i].url);

@@ -41,7 +41,9 @@ footer {
 
 .icons {
     grid-area: icons;
-    align-self: center;
+    top: 69px;
+    position: relative;
+    text-align: center;
 }
 
 .form {
@@ -95,7 +97,6 @@ footer {
     align-self: center top;
     text-align: center;
     grid-area: icons;
-    border: bottom 1px whitesmoke;
 }
 
 #moviePosterDiv {
@@ -103,7 +104,7 @@ footer {
     grid-area: poster;
     position: relative;
     overflow: hidden; 
-    align-content: center;
+    text-align: center;
 }
 
 .onStream {
