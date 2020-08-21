@@ -78,7 +78,6 @@ $(document).ready(function () {
                     maincall(personID);
                 });
         }
-
         else {
             maincall(personID);
         }
@@ -108,6 +107,7 @@ $(document).ready(function () {
                 var myIndex = 0;
                 var random;
                 var count = 0;
+
                 function slideshow() {
                     var i;
                     var x = document.getElementsByClassName("moviePosters");
@@ -158,14 +158,14 @@ $(document).ready(function () {
     }
     function utellycall(imdbID){
         var settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": "https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/idlookup?country=us&source_id="+imdbID+"&source=imdb",
-        "method": "GET",
-        "headers": {
-        "x-rapidapi-host": "utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com",
-        "x-rapidapi-key": "9b41398bccmsh054a4c1235dff30p1c1836jsn95542e375cf5"
-        }
+            "async": true,
+            "crossDomain": true,
+            "url": "https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/idlookup?country=us&source_id="+imdbID+"&source=imdb",
+            "method": "GET",
+            "headers": {
+            "x-rapidapi-host": "utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com",
+            "x-rapidapi-key": "9b41398bccmsh054a4c1235dff30p1c1836jsn95542e375cf5"
+            }
         }
         $.ajax(settings).done(function (response) {
 
@@ -214,22 +214,20 @@ $(document).ready(function () {
 
             $("#disneyIcon").on("click", function (event) {
                 event.preventDefault();
-                window.open(disI);
+                (disI = "") ? null : window.open(disI);
             })
             $("#primeIcon").on("click", function (event) {
                 event.preventDefault();
-                window.open(priI);
+                (priI = "") ? null : window.open(priI);
             })
             $("#huluIcon").on("click", function (event) {
                 event.preventDefault();
-                window.open(huI);
+                (huI = "") ? null : window.open(huI);
             })
             $("#netflixIcon").on("click", function (event) {
                 event.preventDefault();
-                window.open(netI);
+                (netI = "") ? null : window.open(netI);
             })
-            
         });
     }
-        
 })

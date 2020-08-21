@@ -179,16 +179,3 @@ footer {
         font-size: 12px;
     }
 }
-/*FIX BUTTONS*/
-/*FIX submit button*/
-/*FIX BUTTONS*/
-/* body {
-    display: grid;
-    grid-template-columns: 1fr 6fr 3fr 2fr;
-    grid-template-rows: 1fr 1fr auto;
-    grid-template-areas:
-    ". header header ."
-    ". intro icons ."
-    ". form poster ."
-    "footer footer footer footer";
-} */
