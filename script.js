@@ -168,7 +168,7 @@ $(document).ready(function () {
             }
         }
         $.ajax(settings).done(function (response) {
-
+            $("section button").removeClass("onstream");
             console.log(response);
             var isnetflix = false;
             var ishulu = false;
