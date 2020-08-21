@@ -40,6 +40,7 @@ $(document).ready(function () {
     let includeActor = "";
     $("#submit").on("click", function (event) {
         event.preventDefault();
+        $("section button").removeClass("onStream");
         isnetflix = false;
         ishulu = false;
         isdisney = false;
