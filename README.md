@@ -9,7 +9,7 @@ As an indecisive movie lover, I want to not spend the length of a movie choosing
 The motivation for development is we consistently spend the average length of a movie picking which movie to watch.
 
 
-Direct Link: [Click Here](https://chrscchrn.github.io/ProjectOne/)
+Direct Link: [Click Here](https://chrscchrn.github.io/NotAnotherMovieDb/)
 
 
 INCLUDED APIs:
