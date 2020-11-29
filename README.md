@@ -16,7 +16,6 @@ To demo this application go to the deployed site and select preferences
 npm install
 ```
 
-
 ## Technology Used
 
 - HTML
